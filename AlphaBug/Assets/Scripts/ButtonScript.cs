@@ -9,6 +9,7 @@ public class ButtonScript : MonoBehaviour
     private GameObject buttonHolder;
     public DoorManager doorManager;
     private float movePlace;
+    public bool[] workingTags;
     private bool isStay;
     private int buttonId;
     public bool isBuggy;

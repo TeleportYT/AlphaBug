@@ -37,6 +37,10 @@ public class DoorManager : MonoBehaviour
 
     public void buttonOff()
     {
-        onNum--;
+        if (onNum-1>=0)
+        {
+            onNum--;
+        }
+      
     }
 }
