@@ -9,7 +9,8 @@ public class ButtonScript : MonoBehaviour
     private GameObject buttonHolder;
     public DoorManager doorManager;
     private float movePlace;
-    public bool[] workingTags;
+    [SerializeField]
+    private string[] tags;
     private bool isStay;
     private int buttonId;
     public bool isBuggy;
@@ -28,39 +29,47 @@ public class ButtonScript : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        for (int i = 0; i < tags.Length; i++)
         {
-            isStay = true;
-            Debug.Log("Stay");
-            if (clickerObj.transform.localPosition.y > buttonHolder.transform.localPosition.y)
+            if (collision.gameObject.tag == tags[i])
             {
-                clickerObj.transform.localPosition -= new Vector3(0, (float)(speed * Time.deltaTime) , 0);
-            }
-            else
-            {
-                
-                if (buttonId == -1)
+                isStay = true;
+                Debug.Log("Stay");
+                if (clickerObj.transform.localPosition.y > buttonHolder.transform.localPosition.y)
                 {
-                    Debug.Log("Full and New");
-                    buttonId = doorManager.buttonOn();
+                    clickerObj.transform.localPosition -= new Vector3(0, (float)(speed * Time.deltaTime), 0);
                 }
                 else
                 {
-                    Debug.Log("Full and Old");
-                }
-                
 
+                    if (buttonId == -1)
+                    {
+                        Debug.Log("Full and New");
+                        buttonId = doorManager.buttonOn();
+                    }
+                    else
+                    {
+                        Debug.Log("Full and Old");
+                    }
+
+
+                }
+                i = tag.Length;
             }
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        for (int i = 0; i < tags.Length; i++)
         {
-            isStay = false;
-            buttonId = -1;
-            doorManager.buttonOff();
+            if (collision.gameObject.tag == tags[i])
+            {
+                isStay = false;
+                buttonId = -1;
+                doorManager.buttonOff();
+                i = tags.Length;
+            }
         }
     }
 

@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
+    [Space(2)]
+    [SerializeField]
+    [Header("Start Y")]
     private float y;
+    [SerializeField]
+    [Header("Speed")]
+    [Range(0, 5)]
+    private float speed;
 
     private void Start()
     {
@@ -14,7 +21,7 @@ public class OpenDoor : MonoBehaviour
     {
         if (transform.localPosition.y < (y+transform.lossyScale.y)*5)
         {
-            transform.position += new Vector3(0, (float)(0.1 * Time.deltaTime), 0);
+            transform.position += new Vector3(0, (float)(speed * Time.deltaTime), 0);
         }
     }
 
@@ -22,7 +29,7 @@ public class OpenDoor : MonoBehaviour
     {
         if (transform.localPosition.y > y)
         {
-            transform.position -= new Vector3(0, (float)(0.1 * Time.deltaTime), 0);
+            transform.position -= new Vector3(0, (float)(speed * Time.deltaTime), 0);
         }
     }
 
