@@ -7,7 +7,6 @@ public class DoorManager : MonoBehaviour
     public int onNum;
     public int needToOpen;
     public OpenDoor door;
-    public bool open;
 
     private void Start()
     {
@@ -25,14 +24,12 @@ public class DoorManager : MonoBehaviour
         }
     }
 
-    public int buttonOn()
+    public void buttonOn()
     {
-        open = true;
         if (onNum<=needToOpen)
         {
             onNum++;
         }
-        return onNum;
     }
 
     public void buttonOff()

@@ -26,13 +26,12 @@ public class PistonManager : MonoBehaviour
         }
     }
 
-    public int buttonOn()
+    public void buttonOn()
     {
         if (onNum <= needToOpen)
         {
             onNum++;
         }
-        return onNum;
     }
 
     public void buttonOff()

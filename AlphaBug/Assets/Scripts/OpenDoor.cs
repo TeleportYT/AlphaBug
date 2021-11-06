@@ -12,6 +12,11 @@ public class OpenDoor : MonoBehaviour
     [Header("Speed")]
     [Range(0, 5)]
     private float speed;
+    [Space(2)]
+    [SerializeField]
+    [Header("Max height")]
+    [Range(0, 10)]
+    private float maxHeight;
 
     private void Start()
     {
@@ -19,9 +24,9 @@ public class OpenDoor : MonoBehaviour
     }
     public void OnOpen()
     {
-        if (transform.localPosition.y < (y+transform.lossyScale.y)*5)
+        if (transform.localPosition.y < maxHeight)
         {
-            transform.position += new Vector3(0, (float)(speed * Time.deltaTime), 0);
+            transform.localPosition += new Vector3(0, (float)(speed * Time.deltaTime), 0);
         }
     }
 
@@ -29,7 +34,7 @@ public class OpenDoor : MonoBehaviour
     {
         if (transform.localPosition.y > y)
         {
-            transform.position -= new Vector3(0, (float)(speed * Time.deltaTime), 0);
+            transform.localPosition -= new Vector3(0, (float)(speed * Time.deltaTime), 0);
         }
     }
 

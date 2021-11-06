@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ButtonScript : MonoBehaviour
 {
     private GameObject buttonObj;
     private GameObject clickerObj;
     private GameObject buttonHolder;
-    public DoorManager doorManager;
+    [SerializeField] private UnityEvent onStay,onExit;
     private float movePlace;
     [SerializeField]
     private string[] tags;
-    private bool isStay;
-    private int buttonId;
+    private bool isStay,isNew,isDeleted;
     public bool isBuggy;
     public float speed;
 
     void Start()
     {
-        buttonId = -1;
         isBuggy = false;
         buttonObj = this.gameObject;
         clickerObj = buttonObj.transform.Find("ButtonClick").gameObject;
@@ -42,10 +41,12 @@ public class ButtonScript : MonoBehaviour
                 else
                 {
 
-                    if (buttonId == -1)
+                    if (isNew == false)
                     {
                         Debug.Log("Full and New");
-                        buttonId = doorManager.buttonOn();
+                        onStay.Invoke();
+                        isNew = true;
+                        isDeleted = false;
                     }
                     else
                     {
@@ -63,11 +64,12 @@ public class ButtonScript : MonoBehaviour
     {
         for (int i = 0; i < tags.Length; i++)
         {
-            if (collision.gameObject.tag == tags[i])
+            if (collision.gameObject.tag == tags[i] && isDeleted == false)
             {
                 isStay = false;
-                buttonId = -1;
-                doorManager.buttonOff();
+                isNew = false;
+                isDeleted = true;
+                onExit.Invoke();
                 i = tags.Length;
             }
         }
