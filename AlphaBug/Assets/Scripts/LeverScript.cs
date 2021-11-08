@@ -19,11 +19,27 @@ public class LeverScript : MonoBehaviour
         {
             offStatus.Invoke();
             isTrue = false;
+            if (lever.transform.rotation.z == 0)
+            {
+                lever.transform.Rotate(0, 0, -45);
+            }
+            else
+            {
+                lever.transform.Rotate(0, 0, -90);
+            }
         }
         else
         {
             onStatus.Invoke();
             isTrue = true;
+            if (lever.transform.rotation.z == 0)
+            {
+                lever.transform.Rotate(0, 0, 45);
+            }
+            else
+            {
+                lever.transform.Rotate(0, 0, 90);
+            }
         }
     }
 
