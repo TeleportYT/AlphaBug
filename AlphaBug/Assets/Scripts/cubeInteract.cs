@@ -4,21 +4,41 @@ using UnityEngine;
 
 public class cubeInteract : MonoBehaviour
 {
-    public GameObject plCam;
+    private GameObject plCam;
     private Vector3 pos = new Vector3(0, 0, 1.45f);
-    public Rigidbody rb;
-    public bool isHolding;
-    void Start()
+    private Quaternion qr = new Quaternion(0, 0, 0, 0);
+    [SerializeField]
+    [Range(1,10)]
+    private float throwPower;
+    [Space(2)]
+    [SerializeField]
+    [Range(1,10)]
+    private float powerIncrese;
+    private Rigidbody rb;
+    [SerializeField]
+    [Space(2)]
+    private bool isHolding;
+
+    private void Start()
     {
+        bool isFound = false;
+        while (!isFound)
+        {
+            plCam = GameObject.Find("Player Camera");
+            if (plCam!=null)
+            {
+                isFound = true;
+                break;
+            }
+        }
     }
+
     public void EnableRagdoll()
     {
         transform.SetParent(null);
-        //Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        //transform.position = newPos;
         gameObject.AddComponent<Rigidbody>();
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward*300f);
+        rb.AddForce(transform.forward*throwPower*powerIncrese);
 
     }
     public void DisableRagdoll()
@@ -26,15 +46,11 @@ public class cubeInteract : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Destroy(rb);
         transform.SetParent(plCam.transform, false);
-        Quaternion qr = new Quaternion(0, 0, 0, 0);
+
         transform.localPosition = pos;
         transform.localRotation = qr;
     }
 
-    private void Update()
-    {
-        plCam = GameObject.Find("Player Camera");
-    }
     public void interact()
     {
         if (isHolding)
