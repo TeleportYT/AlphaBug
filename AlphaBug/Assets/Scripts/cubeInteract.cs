@@ -5,7 +5,7 @@ using UnityEngine;
 public class cubeInteract : MonoBehaviour
 {
     private GameObject plCam;
-    private Vector3 pos = new Vector3(0, 0, 1.45f);
+    private Vector3 pos = new Vector3(0, -0.357f, 1.45f);
     private Quaternion qr = new Quaternion(0, 0, 0, 0);
     [SerializeField]
     [Range(1,10)]
