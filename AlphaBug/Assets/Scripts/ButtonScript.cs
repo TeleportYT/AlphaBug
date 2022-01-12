@@ -28,6 +28,10 @@ public class ButtonScript : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
+        if (collision.gameObject.tag == "Cube")
+        {
+            collision.gameObject.GetComponent<cubeInteract>().onButton = this;
+        }
         for (int i = 0; i < tags.Length; i++)
         {
             if (collision.gameObject.tag == tags[i])
@@ -65,6 +69,25 @@ public class ButtonScript : MonoBehaviour
         for (int i = 0; i < tags.Length; i++)
         {
             if (collision.gameObject.tag == tags[i] && isDeleted == false)
+            {
+                isStay = false;
+                isNew = false;
+                isDeleted = true;
+                onExit.Invoke();
+                i = tags.Length;
+                if (collision.gameObject.tag == "Cube")
+                {
+                    collision.gameObject.GetComponent<cubeInteract>().onButton = null;
+                }
+            }
+        }
+    }
+
+    public void takingObject(string tag)
+    {
+        for (int i = 0; i < tags.Length; i++)
+        {
+            if (tag == tags[i] && isDeleted == false)
             {
                 isStay = false;
                 isNew = false;

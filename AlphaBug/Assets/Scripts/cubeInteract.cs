@@ -18,6 +18,7 @@ public class cubeInteract : MonoBehaviour
     [SerializeField]
     [Space(2)]
     private bool isHolding;
+    [SerializeField] public ButtonScript onButton;
 
     private void Start()
     {
@@ -39,10 +40,15 @@ public class cubeInteract : MonoBehaviour
         gameObject.AddComponent<Rigidbody>();
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward*throwPower*powerIncrese);
+        onButton = null;
 
     }
     public void DisableRagdoll()
     {
+        if (onButton != null)
+        {
+            onButton.takingObject(gameObject.tag);
+        }
         rb = GetComponent<Rigidbody>();
         Destroy(rb);
         transform.SetParent(plCam.transform, false);
