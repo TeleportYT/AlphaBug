@@ -8,7 +8,7 @@ public class ButtonScript : MonoBehaviour
     private GameObject buttonObj;
     private GameObject clickerObj;
     private GameObject buttonHolder;
-    [SerializeField] private UnityEvent onStay,onExit;
+    [SerializeField] public UnityEvent onStay,onExit;
     private float movePlace;
     [SerializeField]
     private string[] tags;
@@ -39,8 +39,8 @@ public class ButtonScript : MonoBehaviour
                     clickerObj.transform.localPosition -= new Vector3(0, (float)(speed * Time.deltaTime), 0);
                 }
                 else
-                {
-
+                { 
+                    
                     if (isNew == false)
                     {
                         Debug.Log("Full and New");

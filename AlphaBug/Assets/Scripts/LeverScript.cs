@@ -7,7 +7,7 @@ public class LeverScript : MonoBehaviour
 {
     [SerializeField] private bool isTrue;
     [SerializeField] private GameObject lever;
-    [SerializeField] private UnityEvent onStatus, offStatus;
+    [SerializeField] public UnityEvent onStatus, offStatus;
     void Start()
     {
         lever = gameObject.transform.Find("Lever").gameObject;
