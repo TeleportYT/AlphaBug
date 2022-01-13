@@ -17,3 +17,10 @@ Creating three basic alpha levels to test in closed circle of players the mechan
 Button - sometimes not seeing when the collider is entering
 ## Need to create textures:
 Dev gun - don't have an idea
+## Alright for now:
+Door - Works like a normal door
+<img src="" align="right"
+     alt="Vik" width="178" height="178">
+Cube - normal pickup cube with snaps textures
+Lever - working really well
+Piston - pushing things up (can be used to complete levels without getting the player up (Hints)) 
