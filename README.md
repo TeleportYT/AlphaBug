@@ -14,7 +14,6 @@ In progress : Building guide screens
 Creating three basic alpha levels to test in closed circle of players the mechanics
 # Already finished: 
 ## Need to Polish:
-Basic Puzzle Mechanics
-
+Button - sometimes not seeing when the collider is entering
 ## Need to create textures:
-Dev gun
+Dev gun - don't have an idea
