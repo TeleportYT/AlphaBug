@@ -10,6 +10,8 @@ A programmer creates a game and you are the main character of the game, but the 
 sometimes you kill them, sometimes you need to fix the code when you get to the terminal, and at some point in the game, the player finds a cute little bug that doesn't want to die and the player becomes a friend with him but at the end, the cute little bug actually stored so much bug time and became a mega bug boss which eventually player needs to kill and decode it before the game releases
 
 # In Progress
-## Currect Subject : Alpha 0.0.1 to test in closed circle of players
-Already finished : Basic Puzzle Mechanics,Dev gun
+## Currect Subject : Alpha 0.0.1
 In progress : Building guide screens
+Creating three basic alpha levels to test in closed circle of players the mechanics
+# Already finished : 
+Basic Puzzle Mechanics,Dev gun
