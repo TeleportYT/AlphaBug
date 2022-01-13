@@ -13,5 +13,8 @@ sometimes you kill them, sometimes you need to fix the code when you get to the 
 ## Currect Subject : Alpha 0.0.1
 In progress : Building guide screens
 Creating three basic alpha levels to test in closed circle of players the mechanics
-# Already finished : 
-Basic Puzzle Mechanics,Dev gun
+# Already finished: 
+## Need to Polish:
+Basic Puzzle Mechanics
+## Need to create textures:
+Dev gun
