@@ -1,8 +1,7 @@
 # AlphaBug
 <img src="" align="right"
-     alt="Mavi Team" width="178" height="178">
+     alt="Vik" width="178" height="178">
 
-Creating a game for one month game jam called [Game Off 2021](https://itch.io/jam/game-off-2021)   
 The game name for now is : AlphaBug (Because the story taking place in an alpha test of a game)
 
 # Story  
@@ -15,6 +14,7 @@ In progress : Building guide screens
 Creating three basic alpha levels to test in closed circle of players the mechanics
 # Already finished: 
 ## Need to Polish:
-###Basic Puzzle Mechanics
+Basic Puzzle Mechanics
+
 ## Need to create textures:
 Dev gun
