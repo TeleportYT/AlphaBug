@@ -15,6 +15,6 @@ In progress : Building guide screens
 Creating three basic alpha levels to test in closed circle of players the mechanics
 # Already finished: 
 ## Need to Polish:
-Basic Puzzle Mechanics
+###Basic Puzzle Mechanics
 ## Need to create textures:
 Dev gun
